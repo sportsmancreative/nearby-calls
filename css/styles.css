@@ -101,7 +101,7 @@ section { padding-block: clamp(56px, 8vw, 96px); }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 10px;
   padding: 16px 30px;
   border: 2px solid transparent;
   cursor: pointer;
@@ -134,17 +134,31 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 /* --------------------------------------------------------------------------
    Top bar + header
    -------------------------------------------------------------------------- */
-.topbar { background: var(--navy); color: #fff; font-size: 0.8rem; }
-.topbar .container {
+.topbar { background: var(--band); color: #fff; }
+.topbar-inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 22px;
-  justify-content: center;
-  padding-block: 8px;
+  gap: 6px 28px;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 10px;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
 }
 .topbar a { color: #fff; text-decoration: none; }
 .topbar a:hover { color: var(--green-glow); }
-.topbar span, .topbar a { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.topbar span, .topbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.topbar svg { flex: none; }
 
 .site-header {
   position: sticky;
