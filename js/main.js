@@ -83,15 +83,34 @@
         nlStatus.className = "subscribe-note err";
         return;
       }
+      var btn = nlForm.querySelector("button");
+      btn.disabled = true;
+      nlStatus.textContent = "Signing you up…";
+      nlStatus.className = "subscribe-note";
+      var payload = JSON.stringify({ name: name, email: email, source: "nearbycalls.com newsletter" });
       fetch(GHL_NEWSLETTER_WEBHOOK, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ name: name, email: email, source: "nearbycalls.com newsletter" })
-      }).catch(function () {});
-      nlForm.querySelector("button").disabled = true;
-      nlStatus.textContent = "You're in! Check your inbox for a welcome email.";
-      nlStatus.className = "subscribe-note ok";
+        headers: { "Content-Type": "application/json" },
+        body: payload
+      }).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return true;
+      }).catch(function () {
+        /* CORS-blocked or network hiccup: fire-and-forget fallback still delivers */
+        return fetch(GHL_NEWSLETTER_WEBHOOK, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: payload
+        });
+      }).then(function () {
+        nlStatus.textContent = "You're in! Check your inbox for a welcome email.";
+        nlStatus.className = "subscribe-note ok";
+      }).catch(function () {
+        btn.disabled = false;
+        nlStatus.textContent = "Something went wrong — email team@nearbycalls.com and we'll add you.";
+        nlStatus.className = "subscribe-note err";
+      });
     });
   }
 
