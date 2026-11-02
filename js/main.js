@@ -38,6 +38,29 @@
     updateCalc();
   }
 
+  /* Personalized example popup (GoHighLevel form) */
+  var modal = document.getElementById("exampleModal");
+  var openBtn = document.getElementById("exampleBtn");
+  if (modal && openBtn) {
+    var frame = modal.querySelector("iframe");
+    function openModal() {
+      if (frame && !frame.src) frame.src = frame.getAttribute("data-src");
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+    openBtn.addEventListener("click", openModal);
+    modal.querySelectorAll("[data-close-modal]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+  }
+
   /* Sticky mobile buy bar: show after scrolling past the hero */
   var bar = document.getElementById("stickyBar");
   var hero = document.querySelector(".hero");

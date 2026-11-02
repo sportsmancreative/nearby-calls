@@ -681,6 +681,39 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .footer-legal { font-size: 0.88rem; }
 
 /* --------------------------------------------------------------------------
+   Personalized example modal
+   -------------------------------------------------------------------------- */
+.modal { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px; }
+.modal-overlay { position: absolute; inset: 0; background: rgba(4, 26, 53, 0.72); }
+.modal-card {
+  position: relative;
+  background: #fff;
+  border: 2px solid var(--green);
+  border-radius: 16px;
+  width: min(520px, 100%);
+  height: min(560px, 86vh);
+  padding: 10px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+.modal-card iframe { display: block; }
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+.modal-close:hover { background: var(--green-deep); }
+
+/* --------------------------------------------------------------------------
    Sticky mobile buy bar
    -------------------------------------------------------------------------- */
 .sticky-bar {
