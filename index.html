@@ -524,15 +524,29 @@
     </div>
   </section>
 
-  <!-- ============================== Learning center ============================== -->
-  <section class="learn">
+  <!-- ============================== Learning center + email list ============================== -->
+  <section class="learn on-dark">
     <div class="container">
-      <div>
-        <h2>Not Ready Yet? Learn How Google Profiles Work</h2>
-        <p>Our free Learning Center explains Google Business Profiles, local SEO, reviews, and rankings — what actually helps local businesses get found online.</p>
+      <div class="learn-top">
+        <div>
+          <h2>Want to Learn How This Works?</h2>
+          <p>We created a free Learning Center to help business owners better understand Google Business Profiles, local SEO, reviews, rankings, and what actually helps local businesses get found online.</p>
+        </div>
+        <a class="btn btn-green" href="https://learn.nearbycalls.com/">Visit the Learning Center</a>
       </div>
-      <a class="btn btn-navy" href="https://learn.nearbycalls.com/">Visit the Learning Center</a>
-      <!-- To add an email-list signup here, paste your GoHighLevel form embed inside this section. -->
+
+      <div class="subscribe-card">
+        <p class="subscribe-pitch">Join our email list for practical tips on improving your <strong>Google Business Profile</strong>, getting more reviews, and helping more local customers find, trust, and contact your business.</p>
+        <form id="newsletterForm" novalidate>
+          <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="subscribe-fields">
+            <input type="text" id="nlName" name="name" placeholder="Name" autocomplete="name" required>
+            <input type="email" id="nlEmail" name="email" placeholder="Email" autocomplete="email" required>
+            <button class="btn btn-white" type="submit">Subscribe</button>
+          </div>
+          <p class="subscribe-note" id="nlStatus">No spam — unsubscribe anytime.</p>
+        </form>
+      </div>
     </div>
   </section>
 

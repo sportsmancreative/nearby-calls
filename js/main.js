@@ -2,6 +2,11 @@
 (function () {
   "use strict";
 
+  /* GoHighLevel inbound webhook for the email list.
+     Create it in GHL: Automation -> Create Workflow -> trigger "Inbound Webhook",
+     paste the URL here, then add Create/Update Contact (name, email) + a tag. */
+  var GHL_NEWSLETTER_WEBHOOK = "";
+
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("mainNav");
@@ -56,6 +61,37 @@
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+  }
+
+  /* Email list signup -> GoHighLevel webhook */
+  var nlForm = document.getElementById("newsletterForm");
+  if (nlForm) {
+    var nlStatus = document.getElementById("nlStatus");
+    nlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (nlForm.querySelector(".hp").value) return; // bot
+      var name = document.getElementById("nlName").value.trim();
+      var email = document.getElementById("nlEmail").value.trim();
+      if (!name || !email || email.indexOf("@") < 1) {
+        nlStatus.textContent = "Please enter your name and a valid email.";
+        nlStatus.className = "subscribe-note err";
+        return;
+      }
+      if (!GHL_NEWSLETTER_WEBHOOK) {
+        nlStatus.textContent = "Signup isn't connected yet — email team@nearbycalls.com and we'll add you.";
+        nlStatus.className = "subscribe-note err";
+        return;
+      }
+      fetch(GHL_NEWSLETTER_WEBHOOK, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ name: name, email: email, source: "nearbycalls.com newsletter" })
+      }).catch(function () {});
+      nlForm.querySelector("button").disabled = true;
+      nlStatus.textContent = "You're in! Check your inbox for a welcome email.";
+      nlStatus.className = "subscribe-note ok";
     });
   }
 
