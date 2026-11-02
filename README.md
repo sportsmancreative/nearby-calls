@@ -26,7 +26,6 @@ Preview deployments: every push gets a preview URL automatically.
 ## Before pointing the domain here (launch checklist)
 
 - [ ] **Legal pages**: paste the full text from the live Brizy pages into `privacy-policy.html` and `terms-and-conditions.html` (each page has a TODO banner and an HTML comment with instructions). In the terms, update the refund section to include the **30-Day Visibility Guarantee** ($197 refunded if GBP visibility hasn't improved in the first 30 days) — the live terms currently say all fees are non-refundable, which would contradict the homepage.
-- [ ] **Original graphics**: `assets/hero-phone.png`, `laptop-report.png`, `review-phone.png`, `vs-comparison.png`, and `cta-phone.png` are cropped from a page screenshot. Replace them with the original exports from Brizy/Canva at the same filenames for full quality.
 - [ ] **Sportsman Creative links**: the site links to `https://www.sportsmancreative.com/` in the footer, reviews intro, founder block, and FAQ — confirm that's the right URL.
 - [ ] **"Text EXAMPLE" button** (review automation section): currently an `sms:` link to (877) 848-5774. If the personalized-example flow lives in GoHighLevel, swap in the GHL popup/form embed there instead.
 - [ ] **Email list signup**: the old site had a subscribe form. There's a marked spot in the Learning Center section (`index.html`, HTML comment) to paste a GoHighLevel form embed.

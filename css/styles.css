@@ -188,7 +188,13 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 /* --------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------- */
-.hero { padding-block: clamp(48px, 7vw, 88px); }
+.hero {
+  padding-block: clamp(48px, 7vw, 88px);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, #ffffff 96%),
+    radial-gradient(rgba(68, 166, 26, 0.13) 1.6px, transparent 1.6px);
+  background-size: auto, 26px 26px;
+}
 .hero .container {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
@@ -390,6 +396,10 @@ section { padding-block: clamp(56px, 8vw, 96px); }
    Why this works
    -------------------------------------------------------------------------- */
 .why { background: var(--bg-soft); }
+.vs-grow-mobile { display: none; }
+@media (max-width: 640px) {
+  .vs-grow-mobile { display: block; margin-top: 14px; }
+}
 .why-media {
   background: #fff;
   border: 1px solid var(--line);
@@ -564,14 +574,15 @@ section { padding-block: clamp(56px, 8vw, 96px); }
    Final CTA
    -------------------------------------------------------------------------- */
 .final-cta { background: var(--band); }
-.final-cta .container { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
+.final-cta-inner { max-width: 680px; text-align: center; }
+.final-cta .contact-row { justify-content: center; }
 .final-cta h2 { color: #fff; }
 .final-cta p { color: var(--text-dark-bg); }
 .final-cta .audit-link { display: inline-block; margin-top: 16px; color: var(--green-glow); font-weight: 600; }
 .contact-row { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 22px; font-weight: 600; }
 .contact-row a { color: #fff; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
 .contact-row a:hover { color: var(--green-glow); }
-.final-media img { margin-inline: auto; border-radius: var(--radius-lg); }
+
 
 /* --------------------------------------------------------------------------
    Learning center band
@@ -680,8 +691,7 @@ section { padding-block: clamp(56px, 8vw, 96px); }
   .hero .container,
   .how .container,
   .automation .container,
-  .founder .container,
-  .final-cta .container { grid-template-columns: 1fr; gap: 34px; }
+  .founder .container { grid-template-columns: 1fr; gap: 34px; }
   .hero-media { max-width: 420px; margin-inline: auto; }
   .founder-photo { max-width: 340px; margin-inline: auto; }
 
