@@ -684,6 +684,7 @@ section { padding-block: clamp(56px, 8vw, 96px); }
    Personalized example modal
    -------------------------------------------------------------------------- */
 .modal { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px; }
+.modal[hidden] { display: none; }
 .modal-overlay { position: absolute; inset: 0; background: rgba(4, 26, 53, 0.72); }
 .modal-card {
   position: relative;
