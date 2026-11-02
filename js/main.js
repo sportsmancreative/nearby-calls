@@ -42,9 +42,7 @@
   var modal = document.getElementById("exampleModal");
   var openBtn = document.getElementById("exampleBtn");
   if (modal && openBtn) {
-    var frame = modal.querySelector("iframe");
     function openModal() {
-      if (frame && !frame.src) frame.src = frame.getAttribute("data-src");
       modal.hidden = false;
       document.body.style.overflow = "hidden";
     }
