@@ -688,15 +688,36 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .modal-overlay { position: absolute; inset: 0; background: rgba(4, 26, 53, 0.72); }
 .modal-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 2px solid var(--green);
   border-radius: 16px;
   width: min(520px, 100%);
-  height: min(560px, 86vh);
-  padding: 10px;
+  height: min(680px, 90vh);
+  padding: 26px 10px 10px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
-.modal-card iframe { display: block; }
+.modal-head { text-align: center; padding: 0 26px 6px; }
+.modal-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--navy);
+  border-radius: 12px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.modal-head h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #111827;
+  margin-bottom: 8px;
+}
+.modal-head p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.modal-card iframe { display: block; flex: 1; min-height: 0; }
 .modal-close {
   position: absolute;
   top: -14px;
