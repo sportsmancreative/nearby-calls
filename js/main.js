@@ -5,7 +5,7 @@
   /* GoHighLevel inbound webhook for the email list.
      Create it in GHL: Automation -> Create Workflow -> trigger "Inbound Webhook",
      paste the URL here, then add Create/Update Contact (name, email) + a tag. */
-  var GHL_NEWSLETTER_WEBHOOK = "";
+  var GHL_NEWSLETTER_WEBHOOK = "https://services.leadconnectorhq.com/hooks/vjMScN0jFkg3d0Rvjk7O/webhook-trigger/5123e325-b4e3-4811-b5ba-bec9efa8a7cb";
 
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav-toggle");
