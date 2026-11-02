@@ -574,8 +574,8 @@ section { padding-block: clamp(56px, 8vw, 96px); }
    Final CTA
    -------------------------------------------------------------------------- */
 .final-cta { background: var(--band); }
-.final-cta-inner { max-width: 680px; text-align: center; }
-.final-cta .contact-row { justify-content: center; }
+.final-cta .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+.final-media img { max-width: 440px; margin-inline: auto; }
 .final-cta h2 { color: #fff; }
 .final-cta p { color: var(--text-dark-bg); }
 .final-cta .audit-link { display: inline-block; margin-top: 16px; color: var(--green-glow); font-weight: 600; }
@@ -691,7 +691,8 @@ section { padding-block: clamp(56px, 8vw, 96px); }
   .hero .container,
   .how .container,
   .automation .container,
-  .founder .container { grid-template-columns: 1fr; gap: 34px; }
+  .founder .container,
+  .final-cta .container { grid-template-columns: 1fr; gap: 34px; }
   .hero-media { max-width: 420px; margin-inline: auto; }
   .founder-photo { max-width: 340px; margin-inline: auto; }
 
